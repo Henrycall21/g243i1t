@@ -1,10 +1,14 @@
 const botoes = document.querySelectorAll(".botao")
-console.log(botoes)
+const conteudo = document.querySelectorAll(".aba-conteudo")
+const tempo = document.querySelectorAll(".contador")
+console.log(tempo)
 for (let i = 0; 1 < botoes.length ; i++){
     botoes[i].onclick = function(){
         for (let j = 0; j < botoes.length ;j++){
             botoes[j].classList.remove("ativo");
+            conteudo[1].classList.remove("ativo")
         }
         botoes[i].classList.add("ativo")
+        conteudo[1].classList.add("ativo")
     }
 }
