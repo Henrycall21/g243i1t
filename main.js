@@ -16,6 +16,11 @@ Segundos = (tempoObjetivo1 - agora)/1000
 Minutos = segundos/60
 Horas = minutos/60
 Dias = horas/24
+segundos = Math.floor (segundos);
+minutos = Math.floor (minutos);
+horas = Math.floor (horas);
+dias = Math.floor (dias);
+tempo[0].textContent = `faltam ${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`
 tempo[0].textContent = tempoObjetivo1 - agora
 tempo[1].textContent = tempoObjetivo1
 console.log(botoes);
