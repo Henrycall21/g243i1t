@@ -2,35 +2,37 @@ const botoes = document.querySelectorAll(".botao");
 const conteudo = document.querySelectorAll(".aba-conteudo")
 const tempo = document.querySelectorAll(".contador")
 tempo[0].textContent = "hello,tudo bem?"
-const tempoObjetivo1 = new Date(2024,16,17,05);
-const tempoObjetivo2 = new Date(016);
+const tempoObjetivo1 = new Date(2024,7,4,7);
+const tempoObjetivo2 = new Date(8);
 const tempoObjetivo3 = new Date(2007);
-const tempoObjetivo4 = new Date(17);
-const tempoObjetivo5 = new Date(06);
-const agora = new Date();
-tempo[0].textContent = tempoObjetivo1-agora
-tempo[1].textContent = tempoObjetivo1
+const tempoObjetivo4 = new Date(2);
+const tempoObjetivo5 = new Date(21);
+
+function calculaTempo(tempoObjetivo){ 
+const agora = new Date()
 let segundos;
 let minutos;
 let horas;
 let dias;
-segundos= (tempoObjetivo1-agora)/1000
-minutos= segundos/60
-horas= minutos/60
-dias= horas/24
+segundos = Math.floor((tempoObjetivo-agora)/1000);
+minutos = Math.floor(segundos/60);
+horas = Math.floor(minutos/60);
+dias = Math.floor(horas/24);
 
+segundos = segundos%60
+minutos = minutos%60
+horas = horas%24
+if(segundos >= 0){
+   return `Faltam ${dias} dias,${horas} horas,${minutos} minutos, ${segundos} segundo`
+} else {
+    return ´Prazo Finalizado!´
+}
 
+ tempo[0].textContent = calculaTempo(tempoObjetivo1);
+ tempo[1].textContent = calculaTempo(tempoObjetivo2);
+ tempo[2].textContent = calculaTempo(tempoObjetivo3);
+ tempo[3].textContent = calculaTempo(tempoObjetivo4);
 
-segundos = Math.floor(segundos);
-minutos = Math.floor(minutos);
-horas = Math.floor(horas);
-dias = Math.floor(dias);
-
-
-
-tempo[0].textContent = `faltam ${dias} dias,${horas} horas,${minutos} minutos, ${segundos} segundos`
-segundos=Math.floor(segundos);
-console.log(botoes);
 for(let i = 0; i < botoes.length ; i++){
     botoes[i].onclick = function() {
         for (j=0;j<botoes.length;j++){
